@@ -32,7 +32,24 @@ const applibros = {
         
     },
     agregarLibro: ()=>{
-        alert("agregando un libro");
+        const txtNombre=document.getElementById("txtNombre");
+        const txtPaginas=document.getElementById("txtPaginas");
+        const txtAutor=document.getElementById("txtAutor");
+        const txtEditorial=document.getElementById("txtEditorial");
+        const txtPortadaUrl=document.getElementById("txtPortadaUrl");
+        const txtSinopsis=document.getElementById("txtSinopsis");
+        const txtGenero=document.getElementById("txtGenero");
+        
+        const nuevoLibro = {
+            "nombre": txtNombre.value,
+            "paginas": txtPaginas.value,
+            "autor": txtAutor.value,
+            "editorial": txtEditorial.value,
+            "portada_url": txtPortadaUrl.value,
+            "sinopsis": txtSinopsis.value,
+            "genero": txtGenero.value
+          };  
+        console.log(nuevoLibro);  
     }
 }
 applibros.listarLibros();
