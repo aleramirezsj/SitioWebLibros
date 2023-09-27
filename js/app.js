@@ -30,6 +30,9 @@ const applibros = {
             contenedor.innerHTML=contenidoHTML;
         })
         
+    },
+    agregarLibro: ()=>{
+        alert("agregando un libro");
     }
 }
 applibros.listarLibros();
