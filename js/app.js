@@ -19,10 +19,16 @@ const applibros = {
                 contenidoHTML += `
                 <div>
                     <img src="${libro.portada_url}" class="img-thumbnail"/>
+                    <h4>${libro.nombre}</h4>
+                    <h5>Autor:${libro.autor}</h5>
+                    <h5>Género:${libro.genero}</h5>
                     <details>
-                        <summary>${libro.nombre}</summary>
-                        ${libro.sinopsis}
+                        <summary>Mas info</summary>
+                        Sinopsis:${libro.sinopsis}<br/>
+                        Páginas:${libro.paginas}<br/>
+                        Editorial:${libro.editorial}
                     </details>
+                    <a href="#" onclick="applibros.editarLibro('${libro._id}')">Editar</a>
 
                 </div>
                 `;
@@ -50,6 +56,29 @@ const applibros = {
             "genero": txtGenero.value
           };  
         console.log(nuevoLibro);  
+        fetch(urlApi, {
+            method: "POST",
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(nuevoLibro)
+            })  
+            .then(response => {
+              console.log(response);
+              window.location.href="index.html";
+              //return movies.obtenerTodos();
+            });
+    },
+    editarLibro:(idLibroAEditar)=>{
+        const urlApi=`https://biblioisp20-92ed.restdb.io/rest/libros/${idLibroAEditar}?apikey=64f8c70b68885429270bfe7d`;
+
+        fetch(urlApi
+            ).then(res => res.json())
+              .then(libro => {
+                document.getElementById("txtNombre").value=libro.nombre;
+                document.getElementById("txtPaginas").value=libro.paginas;
+
+              });
     }
 }
 applibros.listarLibros();
