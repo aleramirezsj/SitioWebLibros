@@ -12,6 +12,7 @@
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>Biblioteca ISP20</title>
 </head>
@@ -73,6 +74,7 @@
           </div>
           <div class="modal-body">
             <form id="agregarEditarForm" onsubmit="return false;">
+              <input type="hidden" id="txtId">
               <label for="txtNombre" class="form-label">Nombre:</label>
               <input type="text" id="txtNombre" class="form-control mb-3"  required>
               <label for="txtPaginas" class="form-label">Páginas:</label>
@@ -87,7 +89,7 @@
               <textarea id="txtSinopsis" class="form-control mb-3" rows="3"></textarea>
               <label for="txtGenero" class="form-label">Genero:</label>
               <input type="text" id="txtGenero" class="form-control mb-3">
-              <input type="submit" value="Enviar" class="form-control btn btn-primary" onclick="applibros.agregarLibro();">
+              <input type="submit" value="Enviar" class="form-control btn btn-primary" onclick="applibros.guardarLibro();">
               
             </form>
           </div>
